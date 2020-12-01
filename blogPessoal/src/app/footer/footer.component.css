@@ -1,0 +1,30 @@
+/* footer social icons */
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+  
+    padding: 0;
+  }
+  
+  ul.social-network li {
+    display: inline;
+    margin: 0;
+    padding: 5px;
+  }
+  
+  .faGit, .faLinkedin, .faInstagram{
+      color: white;
+  }
+  
+  .faGit:hover{
+    color: #0d1527;
+  }
+  
+  .faLinkedin:hover{
+  color: #0072b1;
+  }
+  
+  .faInstagram:hover{
+  color: #C13584;
+  }
