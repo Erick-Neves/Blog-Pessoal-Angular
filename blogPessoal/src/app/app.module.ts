@@ -13,6 +13,7 @@ import { PerfilLateralComponent } from './perfil-lateral/perfil-lateral.componen
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { from } from 'rxjs';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { from } from 'rxjs';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
