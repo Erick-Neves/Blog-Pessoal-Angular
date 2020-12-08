@@ -26,14 +26,26 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar(){
-    if(this.senha === this.user.senha){
+    this.user.nome= "participante"
+    this.user.usuario= "participante@email.com"
+    this.user.senha= "12345678"
+    this.senha= "12345678"
+    console.log("nome "+ this.user.nome)
+    console.log("usuario "+ this.user.usuario)
+    console.log("senha "+ this.user.senha)
+    console.log("senha variavel "+ this.user.senha)
+    if ( this.senha === this.user.senha ) {
       this.authService.cadastrar(this.user).subscribe((resp: User) => {
         this.user = resp
         this.router.navigate(['/login'])
-        alert('Usuario cadastrado com sucesso!')
+        alert('Usuário cadastrado com sucesso!')
+      }, err => {
+        console.log(`Erro cod: ${err.status}`)
+        if (err.status==400) {
+          alert("usuario ja cadastrado")
+        }
       })
-    }
-    else{
+    } else {
       alert('Suas senhas não conferem')
     }
   }

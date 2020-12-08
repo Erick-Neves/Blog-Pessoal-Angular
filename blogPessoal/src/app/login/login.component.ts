@@ -21,9 +21,14 @@ export class LoginComponent implements OnInit {
   }
 
   entrar(){
+    this.userLogin.usuario ="participante@email.com"
+    this.userLogin.senha= "12345678"
+    console.log("usuario "+this.userLogin.usuario)
+    console.log("senha "+ this.userLogin.senha)
+    console.log("token "+this.userLogin.token)
     this.authService.logar(this.userLogin).subscribe((resp: UserLogin) => {
       this.userLogin = resp
-      localStorage.setItem('token', this.userLogin.token)
+      localStorage.setItem('token', this.userLogin.token)!
       this.router.navigate(['/feed'])
     })
   }
