@@ -24,13 +24,13 @@ export class PostTemaComponent implements OnInit {
   }
 
   findAllTemas(){
-    this.temaService.getAllTemas().subscribe((resp: Tema[] | any) => {
+    this.temaService.getAllTemas().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })
   }
 
   findByIdTema(){
-    this.temaService.getByIdTema(this.tema.id).subscribe((resp: Tema | any) => {this.tema = resp})
+    this.temaService.getByIdTema(this.tema.id).subscribe((resp: Tema) => {this.tema = resp})
   }
 
   cadastrar(){
@@ -38,7 +38,7 @@ export class PostTemaComponent implements OnInit {
       alert("Preencha o campo nome do tema corretamente!")
     }
     else{
-      this.temaService.postTema(this.tema).subscribe((resp: Tema | any) => {this.tema = resp})
+      this.temaService.postTema(this.tema).subscribe((resp: Tema) => {this.tema = resp})
       this.router.navigate(['/feed'])
       alert('Tema Cadastrado com Sucesso!')
     }

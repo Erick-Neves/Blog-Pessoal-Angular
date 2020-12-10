@@ -11,7 +11,7 @@ import { TemaService } from '../service/tema.service';
 })
 export class FeedComponent implements OnInit {
 
-  key = 'data'
+  key = 'date'
   reverse = true
 
   postagem: Postagem = new Postagem()
@@ -34,33 +34,33 @@ export class FeedComponent implements OnInit {
   }
 
   findAllPostagens(){
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[] | any) => {
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
     })
   }
 
-  publicar(){
-    this.tema.id = this.idTema
-    this.postagem.tema = this.tema
+   publicar(){
+     this.tema.id = this.idTema
+     this.postagem.tema = this.tema
 
-    if (this.postagem.titulo == null || this.postagem.texto == null || this.postagem.tema == null){
-      alert('Preencha todos os campos antes de publicar!')
-    }
-    else{
-      this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem | any) => {this.postagem = resp})
-      this.postagem = new Postagem()
-      alert('Postagem com sucesso!')
-      this.findAllPostagens()
-    }
-  }
+     if (this.postagem.titulo == null || this.postagem.texto == null || this.postagem.tema == null){
+       alert('Preencha todos os campos antes de publicar!')
+     }
+     else{
+       this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+         this.postagem = resp
+         this.postagem = new Postagem()
+       alert('Postagem com sucesso!')
+       this.findAllPostagens()
+       })
+     }
+   }
 
   findAllTemas(){
-    this.temaService.getAllTemas().subscribe((resp: Tema[] | any) => {
-      this.listaTemas = resp
-    })
+    this.temaService.getAllTemas().subscribe((resp: Tema[]) => { this.listaTemas = resp })
   }
 
   findByIdTema(){
-    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema | any) => {this.tema = resp})
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {this.tema = resp})
   }
 }

@@ -26,10 +26,6 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrar(){
-    this.user.nome= "participante"
-    this.user.usuario= "participante@email.com"
-    this.user.senha= "12345678"
-    this.senha= "12345678"
     console.log("nome "+ this.user.nome)
     console.log("usuario "+ this.user.usuario)
     console.log("senha "+ this.user.senha)
